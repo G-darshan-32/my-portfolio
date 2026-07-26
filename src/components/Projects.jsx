@@ -3,20 +3,10 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const projects = [
   {
-    title: "Disease Prediction using Ensemble Models",
-    description: "Predicts heart and Parkinson's diseases using ensemble learning techniques combining multiple ML models.",
-    
+    title: "Worktrack",
+    description: "A full-stack work tracking application to manage tasks, monitor progress, and streamline team productivity.",
+    live: "https://worktrack-frontend-seven.vercel.app/",
   },
-  {
-    title: "GeneChain Pattern Finder",
-    description: "A tool that analyzes DNA sequences to detect repeating patterns and anomalies using string algorithms and biological data.",
-    
-  },
-  {
-    title: "Lost & Found Parcel System",
-    description: "A web-based platform to help users report, search, and track lost or found items within public or institutional environments.",
-  },
-
 ];
 
 const Projects = () => {
@@ -62,15 +52,28 @@ const Projects = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-6 text-sm">
                 {project.description}
               </p>
-              <motion.a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-medium hover:underline hover:text-teal-700 dark:hover:text-teal-300"
-                whileHover={{ scale: 1.05 }}
-              >
-                <FaGithub /> GitHub Repo
-              </motion.a>
+              {project.live && (
+                <motion.a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-medium hover:underline hover:text-teal-700 dark:hover:text-teal-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <FaExternalLinkAlt /> Live Demo
+                </motion.a>
+              )}
+              {project.github && (
+                <motion.a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-medium hover:underline hover:text-teal-700 dark:hover:text-teal-300 mt-2"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <FaGithub /> GitHub Repo
+                </motion.a>
+              )}
             </motion.div>
           ))}
         </motion.div>
